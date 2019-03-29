@@ -19,17 +19,17 @@ pipeline {
         }
         stage('tfsvars create'){
             steps {
-                sh 'sudo cp /home/ec2-user/vars.tf ./jenkins/'
+                sh 'sudo cp /home/ec2-user/vars.tf ${WORKSPACE}'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /home/ec2-user/terraform init ./jenkins'
+                sh 'sudo /home/ec2-user/terraform init ${WORKSPACE}'
             }
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /home/ec2-user/terraform plan ./jenkins'
+                sh 'ls ./jenkins; sudo /home/ec2-user/terraform plan ${WORKSPACE}'
             }
         }
         stage('terraform ended') {
