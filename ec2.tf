@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1d"
+  region = "eu-west-2"
   access_key = "${var.access_key}"
   secret_key = "${var.secret_key}"
 }
@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"]
+  owners = ["xyz"]
 }
 
 resource "aws_instance" "web" {
